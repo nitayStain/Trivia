@@ -1,0 +1,100 @@
+﻿<Window x:Class="Client.GameLobby"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Trivia - Lobby" Height="500" Width="800"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Window.DataContext>
+        <local:GameLobbyState />
+    </Window.DataContext>
+    
+    <Window.Resources>
+        <Style TargetType="ScrollBar">
+            <Setter Property="Background" Value="Transparent" />
+
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ScrollBar">
+                        <Grid>
+                            <Track Name="PART_Track">
+                                <Track.DecreaseRepeatButton>
+                                    <RepeatButton Command="ScrollBar.LineUpCommand" Style="{x:Null}" Opacity="0" IsHitTestVisible="False" />
+                                </Track.DecreaseRepeatButton>
+                                <Track.Thumb>
+                                    <Thumb />
+                                </Track.Thumb>
+                            </Track>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+
+        <Style x:Key="PlayerText" TargetType="TextBlock">
+            <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Padding" Value="5" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+        </Style>
+
+        <Style TargetType="Thumb">
+            <Setter Property="Height" Value="50"/>
+            <Setter Property="Width" Value="10"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Thumb">
+                        <Rectangle Fill="DarkGray" RadiusX="5" RadiusY="5"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+
+        <Border CornerRadius="10 10 10 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="0" />
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid>
+                <TextBlock Name="room_name" Text="x's Room" Style="{StaticResource titleText}" Foreground="{StaticResource PrimaryDarkBrush}" Margin="0 20" />
+                <StackPanel VerticalAlignment="Center" Margin="0 20 0 0">
+                    <Border Width="500" Height="300" BorderBrush="White" BorderThickness="5" CornerRadius="10">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel x:Name="Players" Margin="0 10">
+                                <ItemsControl ItemsSource="{Binding Players}">
+                                    <ItemsControl.ItemTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Style="{StaticResource PlayerText}" Tag="{Binding}" Text="{Binding}" />
+                                        </DataTemplate>
+                                    </ItemsControl.ItemTemplate>
+                                </ItemsControl>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Border>
+                    <StackPanel x:Name="btns" Orientation="Horizontal" HorizontalAlignment="Center">
+                        <Button x:Name="btn1" Style="{StaticResource DarkButton}" Content="Start Game" />
+                        <Button x:Name="btn2" Style="{StaticResource DarkButton}" Content="Close Game" />
+
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

@@ -1,0 +1,31 @@
+﻿<Page x:Class="Client.PersonalStatisticsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="PersonalStatisticsPage">
+    
+    <Grid>
+        <Border Width="550" Height="350" BorderBrush="White" BorderThickness="5" CornerRadius="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="Your Statistics Are:" Foreground="White" FontSize="25" HorizontalAlignment="Center" FontFamily="{StaticResource Poppins}" />
+                <TextBlock Name="avgAnsTime" Text="Average Answer Time: " Grid.Row="1" Foreground="White" FontSize="22" FontFamily="{StaticResource Poppins}" />
+                <TextBlock Name="numOfCorrectAns" Text="Amount Of Correct Answers: " Grid.Row="2" Foreground="White" FontSize="22" FontFamily="{StaticResource Poppins}" />
+                <TextBlock Name="numOfAns" Text="Amount Of Total Answers: " Grid.Row="3" Foreground="White" FontSize="22" FontFamily="{StaticResource Poppins}" />
+                <TextBlock Name="numOfGames" Text="Number Of Games Played: " Grid.Row="4" Foreground="White" FontSize="22" FontFamily="{StaticResource Poppins}" />
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
+ 

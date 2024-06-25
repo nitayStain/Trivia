@@ -1,0 +1,42 @@
+﻿<Window x:Class="Client.SignUp"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Trivia - Sign Up" Height="600" Width="400"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent">
+    <Grid>
+        <Border CornerRadius="10 10 10 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="0" />
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Sign Up" Style="{StaticResource titleText}" Foreground="{StaticResource PrimaryDarkBrush}" Height="45"/>
+
+                <StackPanel>
+                    <TextBlock Text="Username" Style="{StaticResource inputLable}" Foreground="White"/>
+                    <TextBox Name="username" Style="{StaticResource BaseTextBox}" Foreground="White"/>
+
+                    <TextBlock Text="Password" Style="{StaticResource inputLable}" Foreground="White"/>
+                    <PasswordBox Name="password" Style="{StaticResource PasswordBoxStyle}" Foreground="White"/>
+
+                    <TextBlock Text="E-Mail" Style="{StaticResource inputLable}" Foreground="White"/>
+                    <TextBox Name="email" Style="{StaticResource BaseTextBox}" Foreground="White"/>
+
+                    <local:ErrorBox x:Name="Error"  HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="10" />
+
+                    <Button Name="Signup" Content="Sign Up" Style="{StaticResource DarkButton}" Click="Button_Click"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>

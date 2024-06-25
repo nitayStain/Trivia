@@ -1,0 +1,61 @@
+﻿<Window x:Class="Client.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Trivia - Login" Height="400" Width="600"
+        ResizeMode="NoResize"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        AllowsTransparency="True"
+        Background="Transparent"
+        >
+
+    <Window.Resources>
+
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.25*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Border CornerRadius="10 0 0 10">
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="0" />
+                    <GradientStop   Color="{StaticResource BackgroundDarkColor}" Offset="1" />
+                </LinearGradientBrush>
+            </Border.Background>
+
+            <Grid VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="Login" Style="{StaticResource titleText}" Foreground="{StaticResource PrimaryDarkBrush}" Height="45" />
+                    <TextBlock Text="Username" Style="{StaticResource inputLable}" Foreground="{StaticResource TextDarkBrush}" />
+
+                    <TextBox Name="iUsername" Style="{StaticResource RoundedTextBoxStyle}"  Foreground="{StaticResource TextDarkBrush}" />
+
+                    <TextBlock Text="Password" Style="{StaticResource inputLable}"  Foreground="{StaticResource TextDarkBrush}" />
+                    <PasswordBox Name="iPassword" Style="{StaticResource PasswordBoxStyle}"  Foreground="{StaticResource TextDarkBrush}"  />
+
+                    <local:ErrorBox x:Name="LoginError" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" FontSize="10" />
+
+                    <Button Content="Join" Style="{StaticResource DarkButton}" Click="Button_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Background="#ffffffff" Grid.Column="1" CornerRadius="0 10 10 0">
+            <Grid VerticalAlignment="Center">
+                <StackPanel>
+                    <TextBlock Text="Don't Have An Account?" Style="{StaticResource titleText}" Foreground="{StaticResource PrimaryLightBrush}" FontSize="18" />
+                    <TextBlock Text="Join us to play wonderful trivia games!" Style="{StaticResource normalText}" Foreground="{StaticResource PrimaryLightBrush}" FontSize="12" />
+                    <Button  Content="Sign Up" Style="{StaticResource button}" Click="Signup_Click" />
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Grid>
+
+</Window>

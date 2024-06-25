@@ -1,0 +1,174 @@
+﻿<Application x:Class="Client.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Client"
+             StartupUri="Login.xaml"
+             Exit="Application_Exit"
+             >
+    <Application.Resources>
+
+
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="LightPalette.xaml" />
+                <ResourceDictionary Source="DarkPalette.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+
+            <FontFamily x:Key="Poppins">pack://application:,,,/Assets/Fonts/#Poppins</FontFamily>
+
+            <Style TargetType="Control">
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            </Style>
+            
+            <Style x:Key="titleText" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="24" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+                <!--<Setter Property="Foreground" Value="#ffffffff" />-->
+            </Style>
+
+            <Style x:Key="normalText" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="12" />
+                <Setter Property="FontWeight" Value="Normal" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="28" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            </Style>
+
+            <Style x:Key="BaseTextBox" TargetType="Control">
+            
+                <Setter Property="Background" Value="Transparent"/>
+                <Setter Property="FontSize" Value="16"/>
+                <Setter Property="Padding" Value="5"/>
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+                <Setter Property="Margin" Value="10"/>
+                <!--<Setter Property="BorderBrush" Value="{"/>-->
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Width" Value="250"/>
+                <Setter Property="Height" Value="40"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Control">
+                            <Grid>
+                                <Border x:Name="border" 
+                                        Background="{TemplateBinding Background}" 
+                                        BorderBrush="{StaticResource AccentDarkBrush}" 
+                                        BorderThickness="{TemplateBinding BorderThickness}" 
+                                        CornerRadius="10" 
+                                        SnapsToDevicePixels="True">
+                                    <ScrollViewer x:Name="PART_ContentHost" 
+                                                  Margin="0" 
+                                                  SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                </Border>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="False">
+                                    <Setter TargetName="border" Property="Background" Value="White"/>
+                                    <Setter TargetName="border" Property="BorderBrush" Value="White"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="RoundedTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource BaseTextBox}" />
+            <Style x:Key="PasswordBoxStyle" TargetType="PasswordBox" BasedOn="{StaticResource BaseTextBox}" />
+
+            <Style x:Key="inputLable" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Width" Value="260" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextAlignment" Value="Left" />
+                <Setter Property="LineHeight" Value="10" />
+                <Setter Property="TextWrapping" Value="Wrap" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            </Style>
+
+            <Style x:Key="errorText" TargetType="TextBlock">
+                <Setter Property="FontSize" Value="14" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="TextAlignment" Value="Center" />
+                <Setter Property="LineHeight" Value="10" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            </Style>
+
+            <Style x:Key="NavbarButton" TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+                <Setter Property="Width" Value="150" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="BorderBrush" Value="Transparent" />
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}" />
+                <Setter Property="FontWeight" Value="Bold" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="{StaticResource SecondaryLightBrush}" />
+                        <Setter Property="Cursor" Value="Hand" />
+                    </Trigger>
+                </Style.Triggers>
+                
+            </Style>
+            
+            <Style x:Key="button" TargetType="Button">
+                <Setter Property="FontSize" Value="14"/>
+                <Setter Property="Width" Value="170" />
+                <Setter Property="Background" Value="Transparent" />
+                <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                <Setter Property="Foreground" Value="{StaticResource TextLightBrush}" />
+                <Setter Property="FontWeight" Value="SemiBold" />
+                <Setter Property="Margin" Value="0 10 0 10" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="{StaticResource SecondaryDarkBrush}" Padding="15">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+
+                <Style.Triggers>
+                    <Trigger Property="IsMouseOver" Value="True">
+                        <Setter Property="Foreground" Value="{StaticResource SecondaryLightBrush}" />
+                        <Setter Property="Cursor" Value="Hand" />
+                    </Trigger>
+                </Style.Triggers>
+            </Style>
+
+            <Style x:Key="MainMenuButton" TargetType="Button" BasedOn="{StaticResource button}">
+                <Setter Property="Background" Value="{StaticResource SecondaryDarkBrush}" />
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}" />
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderThickness="1" BorderBrush="{StaticResource SecondaryLightBrush}" Padding="15">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                            </Border>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="DarkButton" TargetType="Button" BasedOn="{StaticResource button}">
+                <Setter Property="Foreground" Value="{StaticResource TextDarkBrush}" />
+                <Setter Property="FontFamily" Value="{StaticResource Poppins}" />
+            </Style>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

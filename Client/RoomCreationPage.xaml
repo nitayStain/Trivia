@@ -1,0 +1,48 @@
+﻿<Page x:Class="Client.RoomCreationPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Client"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="RoomCreationPage">
+ 
+    <Grid>
+        <Border Width="500" Height="300">
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Style="{StaticResource titleText}" Text="Create Room" Foreground="{StaticResource TextDarkBrush}" />
+                <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Width="250" Grid.Row="0" Grid.Column="0">
+                        <TextBlock Width="250" Text="Room Name" Style="{StaticResource inputLable}" Foreground="White" FontSize="14" TextAlignment="Center" />
+                        <TextBox Name="room_name" Style="{StaticResource BaseTextBox}" Foreground="White" FontSize="10" Height="30" Width="100" />
+                    </StackPanel>
+
+                    <StackPanel Width="250" Grid.Row="0" Grid.Column="1">
+                        <TextBlock Width="250" Text="Max Players" Style="{StaticResource inputLable}" Foreground="White" FontSize="14" TextAlignment="Center" />
+                        <TextBox Name="max_players" Style="{StaticResource BaseTextBox}" Foreground="White" FontSize="10" Height="30" Width="100" />
+                    </StackPanel>
+
+
+                    <StackPanel Width="250" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                        <TextBlock Width="250" Text="Time For Question (in seconds)" Style="{StaticResource inputLable}" Foreground="White" FontSize="14" TextAlignment="Center" />
+                        <TextBox Name="time_for_question" Style="{StaticResource BaseTextBox}" Foreground="White" FontSize="10" Height="30" Width="100" />
+                    </StackPanel>
+
+
+                </Grid>
+
+                <Button Name="CreateButton" Style="{StaticResource DarkButton}" Content="Create" Width="100" Height="48" Click="CreateButton_Click" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>
